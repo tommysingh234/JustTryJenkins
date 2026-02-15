@@ -3,6 +3,7 @@ package seleniumcodes;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -13,8 +14,14 @@ public class AlertgitchecksTest {
 
     @BeforeTest
     public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
+      //  driver.manage().window().maximize();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        WebDriver driver = new ChromeDriver(options);
+
         System.out.print("Welcome to selenium");
         driver.get("https://rahulshettyacademy.com/AutomationPractice/");
     }
