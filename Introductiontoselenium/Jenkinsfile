@@ -9,14 +9,16 @@ pipeline {
 
         stage('Build & Run Tests') {
             steps {
-                sh 'mvn clean test'
+                dir('Introductiontoselenium') {
+                    sh 'mvn clean test'
+                }
             }
         }
     }
 
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            junit 'Introductiontoselenium/target/surefire-reports/*.xml'
         }
     }
 }
