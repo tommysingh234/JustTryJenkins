@@ -26,7 +26,7 @@ public class AlertgitchecksTest {
     	options.addArguments("--disable-dev-shm-usage");
 
     	WebDriver driver = new RemoteWebDriver(
-    	        new URL("http://selenium-chrome:4444/wd/hub"),
+    	        new URL("http://selenium-chrome:4444"),
     	        options
     	);
         driver.get("https://rahulshettyacademy.com/AutomationPractice/");
