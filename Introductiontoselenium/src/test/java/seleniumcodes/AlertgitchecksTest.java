@@ -25,7 +25,7 @@ public class AlertgitchecksTest {
     	options.addArguments("--no-sandbox");
     	options.addArguments("--disable-dev-shm-usage");
 
-    	WebDriver driver = new RemoteWebDriver(
+    	driver = new RemoteWebDriver(
     	        new URL("http://selenium-chrome:4444"),
     	        options
     	);
