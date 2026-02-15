@@ -1,5 +1,8 @@
 package seleniumcodes;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,22 +10,25 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
 
 public class AlertgitchecksTest {
     WebDriver driver;
     String text = "sharath";
 
     @BeforeTest
-    public void setup() {
+    public void setup() throws MalformedURLException {
       //  driver.manage().window().maximize();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless=new");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+    	ChromeOptions options = new ChromeOptions();
+    	options.addArguments("--headless=new");
+    	options.addArguments("--no-sandbox");
+    	options.addArguments("--disable-dev-shm-usage");
 
-        WebDriver driver = new ChromeDriver(options);
-
-        System.out.print("Welcome to selenium");
+    	WebDriver driver = new RemoteWebDriver(
+    	        new URL("http://selenium-chrome:4444/wd/hub"),
+    	        options
+    	);
         driver.get("https://rahulshettyacademy.com/AutomationPractice/");
     }
 
